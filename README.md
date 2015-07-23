@@ -2,7 +2,7 @@
 Boundary Redis
 ==============
 
-Configures an virtual machine with an ElasticSearch instance for testing Boundary Plugin for Redis
+Configures an virtual machine with an ElasticSearch instance for testing Boundary Plugin for Redis. Creates a Redis instance and installs as a service with the name `redis-server_boundary`.
 
 Prerequistes
 ------------
@@ -32,30 +32,6 @@ NOTE: Run `vagrant status` to list the name of the virtual machines.
 $ vagrant ssh <virtual machine name>
 ```
 
-Post Install
-------------
-
-After the virtual machine starts you can then login and use the `install_server.sh` script located in `/opt/redis-3.0.3/utils` to install Redis as a daemon.
-
-1. Change directory to `/opt/redis-3.0.3`
-```bash
-$ cd /opt/redis-3.0.3/utils
-```
-2. Run the install script:
-```bash
-$ sudo ./install_server.sh
-```
-3. Accept the defaults by pressing enter
-4. After the script executes you now start stop using the following:
-```bash
-sudo service redis_6379 start
-sudo service redis_6379 stop
-```
-
-To Do
------
-
-Remove the need for the post install
 
 
 

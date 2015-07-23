@@ -51,7 +51,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "site.pp"
     puppet.facter = {
-      "boundary_api_token" => ENV["BOUNDARY_API_TOKEN"]
+      "boundary_api_token" => ENV["BOUNDARY_API_TOKEN"],
+      "redis_version" => ENV["BOUNDARY_REDIS_VERSION"] ||= "3.0.3"
     }
   end
 

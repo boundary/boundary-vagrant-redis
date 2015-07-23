@@ -17,8 +17,15 @@ node /^ubuntu/ {
   }
 
   class { 'redis::install':
-    redis_version => '3.0.3',
+    redis_version => $redis_version,
     require => Exec['update-apt-packages'],
+  }
+
+  redis::server {
+    'redis':
+      redis_name => 'boundary',
+      running => true,
+      enabled => true,
   }
 
   class { 'boundary':
@@ -47,8 +54,15 @@ node /^centos-7-0/ {
   }
 
   class { 'redis::install':
-    redis_version => '3.0.3',
+    redis_version => $redis_version,
     require => Package['epel-release'],
+  }
+
+  redis::server {
+    'redis':
+      redis_name => 'boundary',
+      running => true,
+      enabled => true,
   }
 
 }
@@ -73,8 +87,15 @@ node /^centos/ {
   }
 
   class { 'redis::install':
-    redis_version => '3.0.3',
+    redis_version => $redis_version,
     require => Package['epel-release'],
+  }
+
+  redis::server {
+    'redis':
+      redis_name => 'boundary',
+      running => true,
+      enabled => true,
   }
 
   class { 'boundary':
