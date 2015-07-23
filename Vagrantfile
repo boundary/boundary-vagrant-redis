@@ -38,7 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell do |shell|
      shell.inline = "puppet module install puppetlabs-stdlib;
                      puppet module install puppetlabs-apt;
-                     puppet module install arioch-redis;
+                     puppet module install dwerder-redis
                      puppet module install boundary-boundary;
                      exit 0"
   end
@@ -54,6 +54,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "boundary_api_token" => ENV["BOUNDARY_API_TOKEN"]
     }
   end
-
 
 end

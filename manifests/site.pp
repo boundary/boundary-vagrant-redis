@@ -7,7 +7,7 @@ node /^ubuntu/ {
   file { 'bash_profile':
     path    => '/home/vagrant/.bash_profile',
     ensure  => file,
-    require => Class['redis'],
+    require => Class['redis::install'],
     source  => '/vagrant/manifests/bash_profile'
   }
 
@@ -16,8 +16,9 @@ node /^ubuntu/ {
     creates => '/vagrant/.locks/update-apt-packages',
   }
 
-  class { 'redis':
-    require => Exec['update-apt-packages']
+  class { 'redis::install':
+    redis_version => '3.0.3',
+    require => Exec['update-apt-packages'],
   }
 
   class { 'boundary':
@@ -45,8 +46,9 @@ node /^centos-7-0/ {
     require => Exec['update-rpm-packages']
   }
 
-  class { 'redis':
-    require => Package['epel-release']
+  class { 'redis::install':
+    redis_version => '3.0.3',
+    require => Package['epel-release'],
   }
 
 }
@@ -56,7 +58,7 @@ node /^centos/ {
   file { 'bash_profile':
     path    => '/home/vagrant/.bash_profile',
     ensure  => file,
-    require => Class['redis'],
+    require => Class['redis::install'],
     source  => '/vagrant/manifests/bash_profile'
   }
 
@@ -70,12 +72,13 @@ node /^centos/ {
     require => Exec['update-rpm-packages']
   }
 
-  class { 'redis':
-    require => Package['epel-release']
+  class { 'redis::install':
+    redis_version => '3.0.3',
+    require => Package['epel-release'],
   }
 
   class { 'boundary':
-    token => $boundary_api_token,
+    token => $boundary_api_token
   }
 
 }
