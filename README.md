@@ -2,7 +2,7 @@
 Boundary Redis
 ==============
 
-Configures an virtual machine with an ElasticSearch instance for testing Boundary Plugin for Redis. Creates a Redis instance and installs as a service with the name `redis-server_boundary`.
+Configures an virtual machine with an ElasticSearch instance for testing Boundary Plugin for Redis. Creates a Redis two instances and installs as a services with the names `redis-server_boundary` and `redis-server_boundary_auth`.
 
 Prerequistes
 ------------

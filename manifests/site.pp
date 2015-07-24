@@ -28,6 +28,16 @@ node /^ubuntu/ {
       enabled => true,
   }
 
+  redis::server {
+    'redis-auth':
+      redis_name => 'boundary_auth',
+      redis_port => 6380,
+      running => true,
+      enabled => true,
+      requirepass => 'boundary123',
+  }
+
+
   class { 'boundary':
     token => $boundary_api_token,
   }
@@ -65,6 +75,15 @@ node /^centos-7-0/ {
       enabled => true,
   }
 
+  redis::server {
+    'redis-auth':
+      redis_name => 'boundary_auth',
+      redis_port => 6380,
+      running => true,
+      enabled => true,
+      requirepass => 'boundary123',
+  }
+
 }
 
 node /^centos/ {
@@ -96,6 +115,15 @@ node /^centos/ {
       redis_name => 'boundary',
       running => true,
       enabled => true,
+  }
+
+  redis::server {
+    'redis-auth':
+      redis_name => 'boundary_auth',
+      redis_port => 6380,
+      running => true,
+      enabled => true,
+      requirepass => 'boundary123',
   }
 
   class { 'boundary':
