@@ -17,9 +17,9 @@ Prior to installation you need to obtain in your Boundary API Token.
 $ git clone https://github.com/boundary/boundary-vagrant-redis
 ```
 
-2. Start the virtual machine using your Boundary API Token:
+2. Start the virtual machine using your Boundary API Token and Redis version:
 ```bash
-$ BOUNDARY_API_TOKEN=<Boundary API Token> vagrant up <virtual machine name>
+$ BOUNDARY_API_TOKEN=<Boundary API Token> BOUNDARY_REDIS_VERSION vagrant up <virtual machine name>
 ```
 NOTE: Run `vagrant status` to list the name of the virtual machines.
 
