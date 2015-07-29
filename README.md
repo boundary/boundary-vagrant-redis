@@ -1,18 +1,14 @@
-# boundary-vagrant-redis
-Boundary Redis
-==============
+# Boundary Redis
 
-Configures an virtual machine with an ElasticSearch instance for testing Boundary Plugin for Redis. Creates a Redis two instances and installs as a services with the names `redis-server_boundary` and `redis-server_boundary_auth`.
+Configures a virtual machine with a Redis instance for testing Boundary Plugin for Redis. Creates two instances of Redis and installs them as services under the names `redis-server_boundary` and `redis-server_boundary_auth`.
 
-Prerequistes
-------------
+## Prerequistes
 
 - Vagrant 1.72. or later, download [here](https://www.vagrantup.com/downloads.html)
 - Virtual Box 4.3.26 or later, download [here](https://www.virtualbox.org/wiki/Downloads)
 - git 1.7 or later
 
-Installation
-------------
+## Installation
 
 Prior to installation you need to obtain in your Boundary API Token.
 
@@ -31,7 +27,4 @@ NOTE: Run `vagrant status` to list the name of the virtual machines.
 ```bash
 $ vagrant ssh <virtual machine name>
 ```
-
-
-
 
